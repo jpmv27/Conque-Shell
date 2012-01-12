@@ -49,6 +49,7 @@ import vim
 import re
 import math
 
+
 class Conque:
 
     # screen object
