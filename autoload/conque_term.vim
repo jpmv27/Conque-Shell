@@ -1015,7 +1015,7 @@ function! conque_term#on_blur() " {{{
     elseif exists('s:save_updatetime')
         exe 'set updatetime=' . s:save_updatetime
     else
-        set updatetime=2000
+        set updatetime&
     endif
 
     " call user defined functions
@@ -1404,6 +1404,7 @@ function! s:term_obj.close() dict " {{{
 
     " delete buffer if option is set
     if self.is_buffer
+        call conque_term#on_blur()
         call conque_term#set_mappings('stop')
         if exists('g:ConqueTerm_CloseOnEnd') && g:ConqueTerm_CloseOnEnd
             sil exe 'bwipeout! ' . self.buffer_name
